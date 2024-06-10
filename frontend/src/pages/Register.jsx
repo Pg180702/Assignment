@@ -20,7 +20,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await fetch(
-      "http://localhost:3000/api/v1/users/register",
+      "https://xeno-deployed-assignment.onrender.com/api/v1/users/register",
       {
         method: "POST",
         body: JSON.stringify({ name, email, password }),

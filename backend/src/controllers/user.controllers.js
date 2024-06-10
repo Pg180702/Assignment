@@ -108,7 +108,7 @@ const googleOauthHandler = async (req, res) => {
       return res
         .status(200)
         .redirect(
-          `http://localhost:5173/oauth/callback?token=${token}&userId=${existUser._id}`
+          `https://xeno-deployed-assignment.vercel.app/oauth/callback?token=${token}&userId=${existUser._id}`
         );
       // .cookie("token", token, options)
       // .json({
@@ -134,7 +134,7 @@ const googleOauthHandler = async (req, res) => {
     return res
       .status(200)
       .redirect(
-        `http://localhost:5173/oauth/callback?token=${token}&userId=${newUser._id}`
+        `https://xeno-deployed-assignment.vercel.app/oauth/callback?token=${token}&userId=${newUser._id}`
       );
     // .cookie("token", token, options)
     // .json({ email: googleUser.email, token: token, userId: newUser._id })

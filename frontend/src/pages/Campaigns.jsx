@@ -7,7 +7,7 @@ const Campaigns = () => {
   useEffect(() => {
     const fetchCampaigns = async () => {
       const response = await fetch(
-        `http://localhost:3000/api/v1/users/get-campaigns/${localStorage.getItem(
+        `https://xeno-deployed-assignment.onrender.com/api/v1/users/get-campaigns/${localStorage.getItem(
           "user-id"
         )}`
       );

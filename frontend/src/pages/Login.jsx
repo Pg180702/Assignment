@@ -18,11 +18,14 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:3000/api/v1/users/login", {
-      method: "POST",
-      body: JSON.stringify({ email, password }),
-      headers: { "Content-Type": "application/json" },
-    });
+    const response = await fetch(
+      "https://xeno-deployed-assignment.onrender.com/api/v1/users/login",
+      {
+        method: "POST",
+        body: JSON.stringify({ email, password }),
+        headers: { "Content-Type": "application/json" },
+      }
+    );
     if (response.status === 200) alert("Login success");
     else alert("Login failed");
   };

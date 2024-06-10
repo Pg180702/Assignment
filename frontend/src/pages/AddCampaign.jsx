@@ -6,7 +6,7 @@ const AddCampaign = () => {
   const handleSubmit = async () => {
     try {
       const response = await fetch(
-        "http://localhost:3000/api/v1/users/campaign-message",
+        "https://xeno-deployed-assignment.onrender.com/api/v1/users/campaign-message",
         {
           method: "POST",
           headers: {

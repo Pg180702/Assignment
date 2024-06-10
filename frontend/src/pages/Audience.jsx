@@ -38,7 +38,7 @@ const Audience = () => {
     if (!localStorage.getItem("user-id")) alert("Please Login/Register First");
     else {
       const response = await fetch(
-        "http://localhost:3000/api/v1/users/audience",
+        "https://xeno-deployed-assignment.onrender.com/api/v1/users/audience",
         {
           method: "POST",
           headers: {
@@ -66,7 +66,7 @@ const Audience = () => {
   const handleAudienceSave = async (e) => {
     try {
       const response = await fetch(
-        "http://localhost:3000/api/v1/users/campaign-message",
+        "https://xeno-deployed-assignment.onrender.com/api/v1/users/campaign-message",
         {
           method: "POST",
           headers: {
