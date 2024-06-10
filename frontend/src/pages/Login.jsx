@@ -26,8 +26,11 @@ const Login = () => {
         headers: { "Content-Type": "application/json" },
       }
     );
-    if (response.status === 200) alert("Login success");
-    else alert("Login failed");
+    if (response.status === 200) {
+      alert("Login success");
+      localStorage.setItem("user-id", response.userId);
+      localStorage.setItem("jsontoken", response.token);
+    } else alert("Login failed");
   };
   //login page
   return (
