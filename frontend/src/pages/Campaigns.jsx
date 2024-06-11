@@ -6,15 +6,19 @@ const Campaigns = () => {
   const [campaigns, setCampaigns] = useState([]);
   useEffect(() => {
     const fetchCampaigns = async () => {
-      const response = await fetch(
-        `${
-          import.meta.env.VITE_BACKEND_URL
-        }/api/v1/users/get-campaigns/${sessionStorage.getItem("user-id")}`
-      );
-      if (response.status === 200) {
-        const data = await response.json();
-        setCampaigns(data.data);
-        console.log(campaigns);
+      if (!sessionStorage.getItem("user-id")) {
+        setCampaigns([]);
+      } else {
+        const response = await fetch(
+          `${
+            import.meta.env.VITE_BACKEND_URL
+          }/api/v1/users/get-campaigns/${sessionStorage.getItem("user-id")}`
+        );
+        if (response.status === 200) {
+          const data = await response.json();
+          setCampaigns(data.data);
+          console.log(campaigns);
+        }
       }
     };
     fetchCampaigns();
