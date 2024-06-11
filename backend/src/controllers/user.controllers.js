@@ -189,16 +189,16 @@ const login = async (req, res) => {
 };
 const audienceCheck = async (req, res) => {
   const { initialRule, conditions } = req.body;
-  console.log(req.body);
+  // console.log(req.body);
   const objectReq = { initialRule, conditions };
   const queryToSearch = buildQuery(objectReq);
-  console.log(queryToSearch);
+  // console.log(queryToSearch);
   const audience = await Customer.find(queryToSearch).exec();
   if (!audience) throw new ApiError(400, "Problem in finding audience");
   if (audience.length === 0)
     return res.status(200).json({ message: "No audience for this criteria" });
-  console.log(audience);
-  console.log(audience.length);
+  // console.log(audience);
+  // console.log(audience.length);
   return res
     .status(200)
     .json({ message: "Audience found", size: audience.length });
@@ -232,14 +232,14 @@ const campaignMessage = async (req, res) => {
     });
     if (!campaign) throw new ApiError(400, "Issue in creating Campaign");
     const cid = campaign._id;
-    console.log(cid);
+    // console.log(cid);
     // console.log(req.body);
     const objectReq = { initialRule, conditions };
     // console.log(objectReq);
     const queryToSearch = buildQuery(objectReq);
-    console.log(queryToSearch);
+    // console.log(queryToSearch);
     const audience = await Customer.find(queryToSearch).exec();
-    console.log(audience);
+    // console.log(audience);
     await Promise.all(
       audience.map((a) =>
         CommunicationLog.create({
@@ -251,7 +251,7 @@ const campaignMessage = async (req, res) => {
       )
     );
     const delivery = await fetch(
-      `${process.env.BACKEND_URL}/api/v1/users/delivery`,
+      "https://assignment-w8sz.onrender.com/api/v1/users/delivery",
       {
         method: "POST",
         headers: {
@@ -271,6 +271,7 @@ const campaignMessage = async (req, res) => {
   }
 };
 const deliveryReceiptApi = async (req, res) => {
+  console.log("delivery hit");
   const { message, userId, cid } = req.body;
   try {
     const audience = await CommunicationLog.find({
