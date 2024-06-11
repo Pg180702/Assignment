@@ -260,6 +260,7 @@ const campaignMessage = async (req, res) => {
         body: JSON.stringify({ message, userId, cid }),
       }
     );
+    console.log(delivery);
     if (!delivery.ok)
       throw new ApiError(400, "Issue in triggering delivery api");
     return res
