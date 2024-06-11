@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import getGoogleOauthURL from "../utils/getGoogleUrl";
 import {
   Stack,
@@ -15,7 +16,7 @@ import GoogleIcon from "@mui/icons-material/Google";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await fetch(
@@ -26,10 +27,12 @@ const Login = () => {
         headers: { "Content-Type": "application/json" },
       }
     );
+    const resData = await response.json();
     if (response.status === 200) {
       alert("Login success");
-      localStorage.setItem("user-id", response.userId);
-      localStorage.setItem("jsontoken", response.token);
+      localStorage.setItem("user-id", resData.userId);
+      localStorage.setItem("jsontoken", resData.token);
+      navigate("/audience");
     } else alert("Login failed");
   };
   //login page
@@ -84,6 +87,7 @@ const Login = () => {
                   <Button
                     variant="contained"
                     color="primary"
+                    fullWidth
                     href={getGoogleOauthURL()}
                   >
                     Login With Google <GoogleIcon />

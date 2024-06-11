@@ -28,10 +28,11 @@ const Register = () => {
         headers: { "Content-Type": "application/json" },
       }
     );
+    const resData = await response.json();
     if (response.status === 200) {
       alert("Registration success");
-      localStorage.setItem("user-id", response.userId);
-      localStorage.setItem("jsontoken", response.token);
+      localStorage.setItem("user-id", resData.userId);
+      localStorage.setItem("jsontoken", resData.token);
       console.log(localStorage.getItem("user-id"));
       console.log(localStorage.getItem("jsontoken"));
       navigate("/audience");
@@ -99,6 +100,7 @@ const Register = () => {
                   <Button
                     variant="contained"
                     color="primary"
+                    fullWidth
                     href={getGoogleOauthURL()}
                   >
                     Register With Google <GoogleIcon />
