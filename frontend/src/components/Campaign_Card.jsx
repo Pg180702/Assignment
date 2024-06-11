@@ -29,6 +29,7 @@ const Campaign_Card = ({ data, id }) => {
   };
   const handleClose = () => setOpen(false);
   const fetchStats = async () => {
+    console.log(id);
     try {
       const response = await fetch(
         `${process.env.VITE_BACKEND_URL}/campaign-stats/${id}`
