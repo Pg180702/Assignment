@@ -32,7 +32,7 @@ const Campaign_Card = ({ data, id }) => {
     console.log(id);
     try {
       const response = await fetch(
-        `${process.env.VITE_BACKEND_URL}/campaign-stats/${id}`
+        `${process.env.VITE_BACKEND_URL}/api/v1/users/campaign-stats/${id}`
       );
       const resData = await response.json();
       setStats({ success: resData.success, failed: resData.fail });
