@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AppBar, Box, Toolbar, Typography, Button } from "@mui/material";
+import { UserContext } from "./UserContext";
 import { Link } from "react-router-dom";
 const Navbar = () => {
-  const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    const username = localStorage.getItem("user-id");
-    if (username) setLoading(true);
-    else setLoading(false);
-  }, []);
-  const username = localStorage.getItem("user-id");
+  const { setUserInfo, userInfo } = useContext(UserContext);
+  // const [loading, setLoading] = useState(false);
+
   const logout = () => {
-    localStorage.removeItem("user-id");
-    localStorage.removeItem("token");
+    setUserInfo(null);
+    sessionStorage.removeItem("user-id");
+    sessionStorage.removeItem("token");
     window.location.href = "/";
   };
+  const username = userInfo?.userId;
   return (
     <Box>
       <AppBar position="static" sx={{ backgroundColor: "#343a40" }}>
@@ -34,7 +33,7 @@ const Navbar = () => {
               XenoCRM
             </Link>
           </Typography>
-          {loading && (
+          {username && (
             <>
               <Link to="/audience">
                 <Button style={{ color: "white", fontSize: "0.9rem" }}>
@@ -54,7 +53,7 @@ const Navbar = () => {
               </Link>
             </>
           )}
-          {!loading && (
+          {!username && (
             <>
               <Link to="/login">
                 <Button style={{ color: "white", fontSize: "0.9rem" }}>

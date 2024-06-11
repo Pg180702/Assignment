@@ -9,7 +9,7 @@ const Campaigns = () => {
       const response = await fetch(
         `${
           import.meta.env.VITE_BACKEND_URL
-        }/api/v1/users/get-campaigns/${localStorage.getItem("user-id")}`
+        }/api/v1/users/get-campaigns/${sessionStorage.getItem("user-id")}`
       );
       if (response.status === 200) {
         const data = await response.json();

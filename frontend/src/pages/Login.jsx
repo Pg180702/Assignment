@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import getGoogleOauthURL from "../utils/getGoogleUrl";
 import {
@@ -12,11 +12,12 @@ import {
   Typography,
 } from "@mui/material";
 import GoogleIcon from "@mui/icons-material/Google";
-
+import { UserContext } from "../components/UserContext";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const { setUserInfo } = useContext(UserContext);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await fetch(
@@ -30,8 +31,9 @@ const Login = () => {
     const resData = await response.json();
     if (response.status === 200) {
       alert("Login success");
-      localStorage.setItem("user-id", resData.userId);
-      localStorage.setItem("jsontoken", resData.token);
+      sessionStorage.setItem("user-id", resData.userId);
+      sessionStorage.setItem("jsontoken", resData.token);
+      setUserInfo(resData.userId);
       navigate("/audience");
     } else alert("Login failed");
   };
@@ -89,8 +91,10 @@ const Login = () => {
                     color="primary"
                     fullWidth
                     href={getGoogleOauthURL()}
+                    sx={{ padding: "1rem" }}
                   >
-                    Login With Google <GoogleIcon />
+                    Login With Google <span> </span>
+                    <GoogleIcon />
                   </Button>
                 </Grid>
                 {/* <Grid xs={12} sm={12} item>

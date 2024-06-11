@@ -8,9 +8,11 @@ import {
   MenuItem,
   Select,
   TextField,
+  Typography,
 } from "@mui/material";
 const Audience = () => {
   const navigate = useNavigate();
+  const [audienceSize, setAudienceSize] = useState(0);
   const [conditions, setConditions] = useState([
     // {
     //   attribute: "",
@@ -31,11 +33,11 @@ const Audience = () => {
       { attribute: "", operator: "", value: "", logic: "" },
     ]);
   };
-  // const handleRuleChange = () => {};
-  // const handleInitialConditionChange = () => {};
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!localStorage.getItem("user-id")) alert("Please Login/Register First");
+    if (!sessionStorage.getItem("user-id"))
+      alert("Please Login/Register First");
     else {
       const response = await fetch(
         `${import.meta.env.VITE_BACKEND_URL}/api/v1/users/audience`,
@@ -49,7 +51,8 @@ const Audience = () => {
       );
       if (response.status === 200) {
         const data = await response.json();
-        alert(`Audience check success,Size is:${data.size}`);
+        setAudienceSize(data.size);
+        alert(`Audience check success`);
       } else alert("Audience Check Failed");
     }
   };
@@ -74,7 +77,7 @@ const Audience = () => {
           },
           body: JSON.stringify({
             message,
-            userId: localStorage.getItem("user-id"),
+            userId: sessionStorage.getItem("user-id"),
             initialRule,
             conditions,
           }),
@@ -164,7 +167,15 @@ const Audience = () => {
             </Grid>
           </Grid>
           {conditions.map((condition, index) => (
-            <Grid container spacing={2} key={index} sx={{ padding: "1rem" }}>
+            <Grid
+              container
+              spacing={2}
+              key={index}
+              sx={{
+                padding: "1rem",
+                boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+              }}
+            >
               <Grid xs={12} sm={4} item>
                 <InputLabel id="demo-simple-select-autowidth-label">
                   Attribute
@@ -233,7 +244,13 @@ const Audience = () => {
               </Grid>
             </Grid>
           ))}
-
+          {audienceSize > 0 ? (
+            <>
+              <Typography>Audience Size is {audienceSize}</Typography>
+            </>
+          ) : (
+            <></>
+          )}
           <Button type="submit">Check Audience Size</Button>
           <Box sx={{ marginTop: "2rem" }}>
             <Box

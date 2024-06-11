@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import getGoogleOauthURL from "../utils/getGoogleUrl";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../components/UserContext";
 import {
   Stack,
   TextField,
@@ -15,6 +16,7 @@ import GoogleIcon from "@mui/icons-material/Google";
 
 const Register = () => {
   const [name, setName] = useState("");
+  const { setUserInfo } = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -31,10 +33,10 @@ const Register = () => {
     const resData = await response.json();
     if (response.status === 200) {
       alert("Registration success");
-      localStorage.setItem("user-id", resData.userId);
-      localStorage.setItem("jsontoken", resData.token);
-      console.log(localStorage.getItem("user-id"));
-      console.log(localStorage.getItem("jsontoken"));
+      setUserInfo(resData.userId);
+      sessionStorage.setItem("user-id", resData.userId);
+      sessionStorage.setItem("jsontoken", resData.token);
+
       navigate("/audience");
     } else if (response.status === 400)
       alert("User already exists, Kindly Login or use a different email");
@@ -101,9 +103,10 @@ const Register = () => {
                     variant="contained"
                     color="primary"
                     fullWidth
+                    sx={{ padding: "1rem" }}
                     href={getGoogleOauthURL()}
                   >
-                    Register With Google <GoogleIcon />
+                    Register With Google <span> </span> <GoogleIcon />
                   </Button>
                 </Grid>
                 {/* <Grid xs={12} sm={12} item>

@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { UserContext } from "../components/UserContext";
 const RedirectHandler = () => {
   const location = useLocation();
   const navigate = useNavigate();
-
+  const { setUserInfo } = useContext(UserContext);
   useEffect(() => {
     const handleOAuthRedirect = () => {
       const queryParams = new URLSearchParams(location.search);
@@ -12,10 +13,10 @@ const RedirectHandler = () => {
 
       if (token && userId) {
         // Store token and userId in local storage
-        localStorage.setItem("token", token);
-        localStorage.setItem("user-id", userId);
-        console.log(localStorage.getItem("token"));
-
+        sessionStorage.setItem("token", token);
+        sessionStorage.setItem("user-id", userId);
+        console.log(sessionStorage.getItem("token"));
+        setUserInfo(userId);
         // Redirect to a secure page or home page
         alert("Successfully looged in/registered");
         navigate("/audience");

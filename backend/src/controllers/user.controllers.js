@@ -302,6 +302,17 @@ const getCampaigns = async (req, res) => {
 };
 const campaignStats = async (req, res) => {
   const { id } = req.params;
+  const data = await CommunicationLog.find({ campaignId: id });
+  if (data.length === 0)
+    return res.status(400).json({ message: "No such campaign" });
+  let success = 0;
+  let fail = 0;
+  data.map((log) => {
+    if (log.status === "SENT") success = success + 1;
+    else if (log.status === "FAILED") fail = fail + 1;
+  });
+
+  return res.status(200).json({ success: success, fail: fail });
 };
 const healthCheck = async (req, res) => {
   res.status(200).json({ message: "server started" });

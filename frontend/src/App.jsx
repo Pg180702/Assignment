@@ -9,23 +9,25 @@ import Audience from "./pages/Audience";
 import Campaigns from "./pages/Campaigns";
 import AddCampaign from "./pages/AddCampaign";
 import RedirectHandler from "./components/RedirectHandler";
-
+import { UserContextProvider } from "./components/UserContext";
 function App() {
   return (
     <>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/audience" element={<Audience />} />
-            <Route path="/campaign" element={<Campaigns />} />
-            {/* <Route path="/newCampaign" element={<AddCampaign />} /> */}
-            <Route path="/oauth/callback" element={<RedirectHandler />} />
-          </Route>
-        </Routes>
-      </Router>
+      <UserContextProvider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/audience" element={<Audience />} />
+              <Route path="/campaign" element={<Campaigns />} />
+              {/* <Route path="/newCampaign" element={<AddCampaign />} /> */}
+              <Route path="/oauth/callback" element={<RedirectHandler />} />
+            </Route>
+          </Routes>
+        </Router>
+      </UserContextProvider>
     </>
   );
 }
