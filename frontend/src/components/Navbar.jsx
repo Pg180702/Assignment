@@ -12,7 +12,7 @@ const Navbar = () => {
     sessionStorage.removeItem("token");
     window.location.href = "/";
   };
-  const username = userInfo?.userId;
+  const username = userInfo;
   return (
     <Box>
       <AppBar position="static" sx={{ backgroundColor: "#343a40" }}>
