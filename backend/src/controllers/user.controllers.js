@@ -108,7 +108,7 @@ const googleOauthHandler = async (req, res) => {
       return res
         .status(200)
         .redirect(
-          `${process.env.FRONTEND_URL}/oauth/callback?token=${token}&userId=${existUser._id}`
+          `https://assignment-coral-phi.vercel.app/oauth/callback?token=${token}&userId=${existUser._id}`
         );
       // .cookie("token", token, options)
       // .json({
@@ -134,7 +134,7 @@ const googleOauthHandler = async (req, res) => {
     return res
       .status(200)
       .redirect(
-        `${process.env.FRONTEND_URL}/oauth/callback?token=${token}&userId=${newUser._id}`
+        `https://assignment-coral-phi.vercel.app/oauth/callback?token=${token}&userId=${newUser._id}`
       );
     // .cookie("token", token, options)
     // .json({ email: googleUser.email, token: token, userId: newUser._id })
