@@ -292,7 +292,7 @@ const deliveryReceiptApi = async (req, res) => {
 };
 const getCampaigns = async (req, res) => {
   const { id } = req.params;
-  const campaigns = await Campaign.find({ owner: id });
+  const campaigns = await Campaign.find({ owner: id }).sort({ createdAt: -1 });
   if (!campaigns)
     return res.status(400).json({ message: "No campaigns of said user" });
   return res.status(200).json({ data: campaigns });

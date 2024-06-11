@@ -33,7 +33,18 @@ const Campaigns = () => {
         {campaigns.length === 0 ? (
           <div>No campaigns Yet</div>
         ) : (
-          campaigns.map((c) => <Campaign_Card key={c.id} data={c} />)
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "3rem",
+            }}
+          >
+            {campaigns.map((c) => (
+              <Campaign_Card id={c._id} data={c} />
+            ))}
+          </Box>
         )}
       </Box>
     </Box>

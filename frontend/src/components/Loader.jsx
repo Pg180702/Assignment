@@ -6,6 +6,7 @@ const Loader = () => {
     <Box
       sx={{
         display: "flex",
+        flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         marginTop: "1.5rem",
@@ -13,6 +14,9 @@ const Loader = () => {
       }}
     >
       <CircularProgress sx={{ color: "#284b63" }} />
+      <h4>
+        Kindly Wait For Server On Render To Start. It can Take 50 to 60 seconds
+      </h4>
     </Box>
   );
 };
