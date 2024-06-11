@@ -103,7 +103,15 @@ const Audience = () => {
           padding: "4rem",
         }}
       >
-        <Button variant="contained" onClick={handleAddCondition}>
+        <Typography variant="h6" sx={{ marginBottom: "1rem" }}>
+          PS: If You Are Choosing Criteria of Rule As LastVisit Then Kindly
+          Enter Date in the 3rd Box in The Format "YYYY-MM-DD".
+        </Typography>
+        <Button
+          variant="contained"
+          onClick={handleAddCondition}
+          sx={{ marginTop: "1rem" }}
+        >
           Add Rule
         </Button>
         <form onSubmit={handleSubmit}>
@@ -113,6 +121,7 @@ const Audience = () => {
             sx={{
               padding: "1rem",
               boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+              marginTop: "1.5rem",
             }}
           >
             <Grid xs={12} sm={4} item>
@@ -139,7 +148,7 @@ const Audience = () => {
             </Grid>
             <Grid xs={12} sm={4} item>
               <InputLabel id="demo-simple-select-autowidth-label">
-                operator
+                Operator
               </InputLabel>
               <Select
                 labelId="demo-simple-select-autowidth-label"
@@ -164,6 +173,7 @@ const Audience = () => {
                 fullWidth
                 sx={{ marginTop: "1.5rem" }}
                 value={initialRule.value}
+                label="Enter Value"
                 onChange={(e) =>
                   setInitialRule((prev) => ({
                     ...prev,
@@ -203,7 +213,7 @@ const Audience = () => {
               </Grid>
               <Grid xs={12} sm={4} item>
                 <InputLabel id="demo-simple-select-autowidth-label">
-                  operator
+                  Operator
                 </InputLabel>
                 <Select
                   labelId="demo-simple-select-autowidth-label"
@@ -223,6 +233,7 @@ const Audience = () => {
                   fullWidth
                   sx={{ marginTop: "1.5rem" }}
                   value={condition.value}
+                  label="Enter Value"
                   onChange={(e) => {
                     const newConditions = [...conditions];
                     newConditions[index].value = e.target.value;
@@ -254,12 +265,16 @@ const Audience = () => {
           ))}
           {audienceSize > 0 ? (
             <>
-              <Typography>Audience Size is {audienceSize}</Typography>
+              <Typography sx={{ marginTop: "1rem" }}>
+                Audience Size is {audienceSize}
+              </Typography>
             </>
           ) : (
             <></>
           )}
-          <Button type="submit">Check Audience Size</Button>
+          <Button type="submit" sx={{ marginTop: "1rem" }}>
+            Check Audience Size
+          </Button>
           <Box sx={{ marginTop: "2rem" }}>
             <Box
               sx={{
