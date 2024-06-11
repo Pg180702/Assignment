@@ -8,6 +8,7 @@ const Campaigns = () => {
     const fetchCampaigns = async () => {
       if (!sessionStorage.getItem("user-id")) {
         setCampaigns([]);
+        return;
       } else {
         const response = await fetch(
           `${

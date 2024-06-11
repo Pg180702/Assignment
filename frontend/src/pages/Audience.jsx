@@ -107,7 +107,14 @@ const Audience = () => {
           Add Rule
         </Button>
         <form onSubmit={handleSubmit}>
-          <Grid container spacing={2} sx={{ padding: "1rem" }}>
+          <Grid
+            container
+            spacing={2}
+            sx={{
+              padding: "1rem",
+              boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+            }}
+          >
             <Grid xs={12} sm={4} item>
               <InputLabel id="demo-simple-select-autowidth-label">
                 Attribute
@@ -174,6 +181,7 @@ const Audience = () => {
               sx={{
                 padding: "1rem",
                 boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+                marginTop: "1.5rem",
               }}
             >
               <Grid xs={12} sm={4} item>
