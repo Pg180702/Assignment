@@ -21,7 +21,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await fetch(
-      "https://xeno-deployed-assignment.onrender.com/api/v1/users/register",
+      `${import.meta.env.VITE_BACKEND_URL}/api/v1/users/register`,
       {
         method: "POST",
         body: JSON.stringify({ name, email, password }),

@@ -251,7 +251,7 @@ const campaignMessage = async (req, res) => {
       )
     );
     const delivery = await fetch(
-      "http://localhost:3000/api/v1/users/delivery",
+      `${process.env.BACKEND_URL}/api/v1/users/delivery`,
       {
         method: "POST",
         headers: {

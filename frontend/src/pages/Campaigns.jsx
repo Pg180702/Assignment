@@ -7,9 +7,9 @@ const Campaigns = () => {
   useEffect(() => {
     const fetchCampaigns = async () => {
       const response = await fetch(
-        `https://xeno-deployed-assignment.onrender.com/api/v1/users/get-campaigns/${localStorage.getItem(
-          "user-id"
-        )}`
+        `${
+          import.meta.env.VITE_BACKEND_URL
+        }/api/v1/users/get-campaigns/${localStorage.getItem("user-id")}`
       );
       if (response.status === 200) {
         const data = await response.json();

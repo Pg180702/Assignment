@@ -8,7 +8,7 @@ const Home = () => {
   useEffect(() => {
     const checkServer = async () => {
       const response = await fetch(
-        "https://xeno-deployed-assignment.onrender.com/api/v1/users/healthcheck"
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/users/healthcheck`
       );
       const resData = await response.json();
       if (resData.message) setServer(true);
