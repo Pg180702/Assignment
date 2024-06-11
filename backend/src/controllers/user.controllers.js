@@ -297,6 +297,12 @@ const getCampaigns = async (req, res) => {
     return res.status(400).json({ message: "No campaigns of said user" });
   return res.status(200).json({ data: campaigns });
 };
+const campaignStats = async (req, res) => {
+  const { id } = req.params;
+};
+const healthCheck = async (req, res) => {
+  res.status(200).json({ message: "server started" });
+};
 module.exports = {
   googleOauthHandler,
   register,
@@ -305,4 +311,6 @@ module.exports = {
   campaignMessage,
   deliveryReceiptApi,
   getCampaigns,
+  campaignStats,
+  healthCheck,
 };

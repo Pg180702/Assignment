@@ -8,4 +8,6 @@ router.route("/audience").post(user.audienceCheck);
 router.route("/delivery").post(user.deliveryReceiptApi);
 router.route("/campaign-message").post(user.campaignMessage);
 router.route("/get-campaigns/:id").get(user.getCampaigns);
+router.route("/campaign-stats/:id").get(user.campaignStats);
+router.route("/healthcheck").get(user.healthCheck);
 module.exports = router;
