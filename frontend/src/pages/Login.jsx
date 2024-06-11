@@ -80,7 +80,7 @@ const Login = () => {
                     Submit
                   </Button>
                 </Grid>
-                <Grid xs={12} sm={12}>
+                <Grid xs={12} sm={12} sx={{ textAlign: "center" }}>
                   OR
                 </Grid>
                 <Grid xs={12} sm={12}>
