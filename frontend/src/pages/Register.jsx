@@ -103,7 +103,6 @@ const Register = () => {
                     variant="contained"
                     color="primary"
                     fullWidth
-                    sx={{ padding: "1rem" }}
                     href={getGoogleOauthURL()}
                   >
                     Register With Google <span> </span> <GoogleIcon />

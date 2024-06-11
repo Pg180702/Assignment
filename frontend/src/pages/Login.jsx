@@ -91,7 +91,6 @@ const Login = () => {
                     color="primary"
                     fullWidth
                     href={getGoogleOauthURL()}
-                    sx={{ padding: "1rem" }}
                   >
                     Login With Google <span> </span>
                     <GoogleIcon />
