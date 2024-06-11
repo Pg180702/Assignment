@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import getGoogleOauthURL from "../utils/getGoogleUrl";
+import { useNavigate } from "react-router-dom";
 import {
   Stack,
   TextField,
@@ -16,7 +17,7 @@ const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await fetch(
@@ -33,6 +34,7 @@ const Register = () => {
       localStorage.setItem("jsontoken", response.token);
       console.log(localStorage.getItem("user-id"));
       console.log(localStorage.getItem("jsontoken"));
+      navigate("/audience");
     } else if (response.status === 400)
       alert("User already exists, Kindly Login or use a different email");
     else alert("registration failed");
@@ -90,9 +92,13 @@ const Register = () => {
                     Submit
                   </Button>
                 </Grid>
-                <Grid xs={12} sm={12} item>
-                  <a href={getGoogleOauthURL()}>Login With Google</a>
-                </Grid>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  href={getGoogleOauthURL()}
+                >
+                  Login With Google <GoogleIcon />
+                </Button>
                 {/* <Grid xs={12} sm={12} item>
                   <button type="button" onClick={loginHandler}>
                     <GoogleIcon />
