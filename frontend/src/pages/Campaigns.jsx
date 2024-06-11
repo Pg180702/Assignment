@@ -14,6 +14,7 @@ const Campaigns = () => {
       if (response.status === 200) {
         const data = await response.json();
         setCampaigns(data.data);
+        console.log(campaigns);
       }
     };
     fetchCampaigns();
