@@ -8,7 +8,7 @@ const userRoutes = require("./routes/user.routes");
 const oauthRoutes = require("./routes/oauth.routes");
 require("dotenv").config();
 app.use(express.json());
-app.use(cors({ origin: "https://xeno-deployed-assignment.vercel.app" }));
+app.use(cors({ origin: "https://xeno-deployed-assignment.vercel.app/" }));
 app.use(cookieParser());
 const db = require("./db/index");
 app.use("/api/v1/customers", customerRoutes);
