@@ -77,13 +77,18 @@ const Login = () => {
                     Submit
                   </Button>
                 </Grid>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  href={getGoogleOauthURL()}
-                >
-                  Login With Google <GoogleIcon />
-                </Button>
+                <Grid xs={12} sm={12}>
+                  OR
+                </Grid>
+                <Grid xs={12} sm={12}>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    href={getGoogleOauthURL()}
+                  >
+                    Login With Google <GoogleIcon />
+                  </Button>
+                </Grid>
                 {/* <Grid xs={12} sm={12} item>
                   <button type="button" onClick={loginHandler}>
                     <GoogleIcon />
