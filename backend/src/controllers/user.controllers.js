@@ -251,7 +251,7 @@ const campaignMessage = async (req, res) => {
       )
     );
     const delivery = await fetch(
-      "https://assignment-w8sz.onrender.com/api/v1/users/delivery",
+      `${process.env.BACKEND_URL}/api/v1/users/delivery`,
       {
         method: "POST",
         headers: {
