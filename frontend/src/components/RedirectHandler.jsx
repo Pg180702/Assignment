@@ -16,7 +16,7 @@ const RedirectHandler = () => {
         sessionStorage.setItem("token", token);
         sessionStorage.setItem("user-id", userId);
         console.log(sessionStorage.getItem("token"));
-        setUserInfo(userId);
+        setUserInfo({ userId: userId, token: token });
         // Redirect to a secure page or home page
         alert("Successfully looged in/registered");
         navigate("/audience");

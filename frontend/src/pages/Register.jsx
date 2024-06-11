@@ -33,7 +33,7 @@ const Register = () => {
     const resData = await response.json();
     if (response.status === 200) {
       alert("Registration success");
-      setUserInfo(resData.userId);
+      setUserInfo(resData);
       sessionStorage.setItem("user-id", resData.userId);
       sessionStorage.setItem("jsontoken", resData.token);
 

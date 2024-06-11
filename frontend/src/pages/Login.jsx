@@ -33,7 +33,7 @@ const Login = () => {
       alert("Login success");
       sessionStorage.setItem("user-id", resData.userId);
       sessionStorage.setItem("jsontoken", resData.token);
-      setUserInfo(resData.userId);
+      setUserInfo(resData);
       navigate("/audience");
     } else alert("Login failed");
   };

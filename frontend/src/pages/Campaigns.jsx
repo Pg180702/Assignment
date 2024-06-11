@@ -2,14 +2,16 @@ import React, { useEffect, useState } from "react";
 import { Box, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import Campaign_Card from "../components/Campaign_Card";
+import { UserContext } from "../components/UserContext";
 const Campaigns = () => {
   const [campaigns, setCampaigns] = useState([]);
+  const { userInfo } = useContext(UserContext);
   useEffect(() => {
     const fetchCampaigns = async () => {
       const response = await fetch(
-        `${
-          import.meta.env.VITE_BACKEND_URL
-        }/api/v1/users/get-campaigns/${sessionStorage.getItem("user-id")}`
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/users/get-campaigns/${
+          userInfo?.userId
+        }`
       );
       if (response.status === 200) {
         const data = await response.json();
@@ -39,7 +41,9 @@ const Campaigns = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              flexWrap: "wrap",
               gap: "3rem",
+              padding: "1rem",
             }}
           >
             {campaigns.map((c) => (
