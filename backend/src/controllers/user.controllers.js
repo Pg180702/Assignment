@@ -302,6 +302,8 @@ const getCampaigns = async (req, res) => {
 };
 const campaignStats = async (req, res) => {
   const { id } = req.params;
+  console.log(id);
+  console.log("campaign hit");
   const data = await CommunicationLog.find({ campaignId: id });
   if (data.length === 0)
     return res.status(400).json({ message: "No such campaign" });
@@ -311,6 +313,7 @@ const campaignStats = async (req, res) => {
     if (log.status === "SENT") success = success + 1;
     else if (log.status === "FAILED") fail = fail + 1;
   });
+  console.log(success);
 
   return res.status(200).json({ success: success, fail: fail });
 };
