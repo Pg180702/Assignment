@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Loader from "../components/Loader";
 import Register from "./Register";
 import { tablePaginationClasses } from "@mui/base";
