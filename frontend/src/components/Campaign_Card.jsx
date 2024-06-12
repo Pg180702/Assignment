@@ -81,13 +81,14 @@ const Campaign_Card = ({ data, id }) => {
                 }}
               >
                 <Typography variant="h6">
-                  Total Audience: {stats.success + stats.fail}
+                  Total Audience:{" "}
+                  {Number(Number(stats.success) + Number(stats.fail))}
                 </Typography>
                 <Typography variant="h6" sx={{ marginTop: "1.5rem" }}>
                   Requests that were successful: {stats.success}
                 </Typography>
                 <Typography variant="h6" sx={{ marginTop: "1.5rem" }}>
-                  Requests that failed: {stats.fail}
+                  Requests that failed: {Number(stats.fail)}
                 </Typography>
               </Box>
             </>
