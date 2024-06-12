@@ -82,13 +82,15 @@ const Campaign_Card = ({ data, id }) => {
               >
                 <Typography variant="h6">
                   Total Audience:{" "}
-                  {Number(Number(stats.success) + Number(stats.fail))}
+                  {isNaN(stats.success) || isNaN(stats.fail)
+                    ? "N/A"
+                    : Number(stats.success) + Number(stats.fail)}
                 </Typography>
                 <Typography variant="h6" sx={{ marginTop: "1.5rem" }}>
                   Requests that were successful: {stats.success}
                 </Typography>
                 <Typography variant="h6" sx={{ marginTop: "1.5rem" }}>
-                  Requests that failed: {Number(stats.fail)}
+                  Requests that failed: {stats.fail}
                 </Typography>
               </Box>
             </>

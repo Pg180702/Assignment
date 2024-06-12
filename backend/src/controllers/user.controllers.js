@@ -323,7 +323,6 @@ const campaignStats = async (req, res) => {
     if (log.status === "SENT") success = success + 1;
     else if (log.status === "FAILED") fail = fail + 1;
   });
-  console.log(success);
 
   return res.status(200).json({ success: success, fail: fail });
 };
