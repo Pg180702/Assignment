@@ -1,11 +1,14 @@
 const { PubSub } = require("@google-cloud/pubsub");
 const projectId = "XenoApp";
 const path = require("path");
+const fs = require("fs");
 const Customer = require("../models/customer.models");
 const Order = require("../models/order.models");
-const filePath = "/etc/secrets/google-cloud-credentials.json";
+const tempFilePath = path.join("/tmp", "google-cloud-credentials.json");
+fs.writeFileSync(tempFilePath, process.env.GOOGLE_CLOUD_CREDENTIALS, "utf8");
+
 const client = new PubSub({
-  keyFilename: filePath,
+  keyFilename: tempFilePath,
 });
 
 const publish = async (topic, payload) => {
