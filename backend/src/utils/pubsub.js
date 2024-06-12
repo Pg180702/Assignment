@@ -31,6 +31,7 @@ const listen = async () => {
       await Order.create(dataToInsert.data);
     else if (dataToInsert.type === "delivery") {
       const { message, userId, cid } = dataToInsert.data;
+      console.log(dataToInsert.data);
       const delivery = await fetch(
         `${process.env.BACKEND_URL}/api/v1/users/delivery`,
         {
