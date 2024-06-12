@@ -9,9 +9,9 @@ const Campaigns = () => {
   useEffect(() => {
     const fetchCampaigns = async () => {
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/api/v1/users/get-campaigns/${
-          userInfo?.userId
-        }`
+        `${
+          import.meta.env.VITE_BACKEND_URL
+        }/api/v1/users/get-campaigns/${sessionStorage.getItem("user-id")}`
       );
       if (response.status === 200) {
         const data = await response.json();

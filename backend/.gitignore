@@ -117,4 +117,6 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+./xenoapp-425717-15c6ff1ec108.json
+
 # End of https://mrkandreev.name/snippets/gitignore-generator/#Node

@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "xenoapp-425717",
+  "private_key_id": "15c6ff1ec108216aaa08aff5b008e317d564c103",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCVJNUutV9mvgMY\nmf1IPc70iAlc5BmVgE/MRc805z4M5hZJVvK9HsQodG7dlUL7O3QcrHHQpGd2kxLM\nKHszrJlTdO46zh8muxTb9aG/eAJJQEa73sLgIbrzDlOVPhiF/BKAq/NZXndgMOYb\naK8kulmtV3hdCyXM7I/uiHknzW+mPMMZybAymhZi+H4WLcJs0653HwnIAxUMZDuh\nGGNr3CNuh4Eu2pJgKz1LlCFFEpkDxfcg3FZuBztnNGuuPtXc30n7PRXgn2T7NFqF\ntI8pn5Q4G1szo84H+AqXPytjULAy3wDEF5HfRNl80gVu8XyTcqNpl3GdwxtBGsa0\ncuZvSt6fAgMBAAECggEACTjsV8WOXyeLwHcxMsjjpbpNvek67cQv6wU8EVzlON33\nbdSLEQe4gHnmqxwCNs/P18AQD6NC5JGmnWo5aBIZrw/xdUBuq7Hw0cMoG9NbbNUl\nKpPVQA/F5Ca0I2viD1Ltf/hiBVoyjoenivVXszE0v2PDxRkd3sSYB9t3hm8NIt3R\n0d+zOZCi6tsAlvagjWPVhwp4txkCfcbmS5qnDXN2O+NhpfSgpkE5VPjRH2V+cIGC\nRKcJubNRK2JoO4RCsLIrGrazFCi+d3z8q1S4G+XkXgcXzWusOXThFh6bSU7voi+4\nwZ6c7dVmwni1/bnB/DoOy8oLs012YrcYg5e9uaK8uQKBgQDK6F7Upaxwly2Mvv1n\nRlVOmoBsLOhNi6upAPT3xOwRsUbjpoQD4/DavbUuerv+EXVoAFQezM25h0/IqO6Z\n6R4H9rLQYdJGwBekMIfWYotanEPXZq4bCnnTXU0SiEj3H5riTU49sX8kwq9Q5ox3\nMGezm19cU+UlzfJSe3yIIOAgqQKBgQC8KyFyYsVAP9e9AXPKPDtKzV0niP3vqVCv\nBUc6f6UCts07P7zCq/5FvGMIYaANQRePx7ngmMnkgNDri7W8mjgYTQJvg0wtqVko\nJYTxl6tQIl3j2eE4/8K4yjc+WlZHlL5z+c+kkS6wqRzlVhhJZC1U86hm0fVaCcpI\nhybdEQRqBwKBgQCt0SMzTH0MsiS99fpDlveK70Vl5Y5Wp3g0vXIcMd/8Q/2zFDjw\n0DnKWEq190PFoJUPs4BcJhtxfB13imdjB1THg6ioY7PrEbDu4PfsSdyQkV54TiiF\nV5MG4l0crAy9TaCzjX+hz8RX7EKcrfLUQ24CaO3mvKOGoAaea9RBFNCKiQKBgFJr\nifDydnfX/wVYt4EjtMzk+yKwDJqHTUH8S+DBvGNd8rM7DdEvSOb+x1oKePKVSl6+\nGxrXkcc27UvfHDGKU3vBb4mstxdhEB5XoM25o14sT3fYHaC71mzeligHpbcg3fMq\nvtrUhOD4kiGZ/nVXHcwSFfdDi/ZuR15RZKJ8K7TNAoGAcKMo9EbgFxVf3p/6DG4z\nYKt7YAX+dvnw3IXI7A1gyZQIPYxG35iOWD9RmKRITRkT6OKY3E9zxmWxwhkNXjp2\n7AQnIMGQ+S6qcO0FE6RywObUKUVcGbrWoJFQtKEj46MQv9UTiUEgndPwgLDz1kxO\n/cxz0Af8lf7+xR8BPvOHnG8=\n-----END PRIVATE KEY-----\n",
+  "client_email": "xeno-app-pub-sub@xenoapp-425717.iam.gserviceaccount.com",
+  "client_id": "106745359738414569821",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/xeno-app-pub-sub%40xenoapp-425717.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
