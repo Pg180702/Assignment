@@ -46,7 +46,10 @@ const Audience = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ initialRule, conditions }),
+          body: JSON.stringify({
+            initialRule,
+            conditions,
+          }),
         }
       );
       if (response.status === 200) {
