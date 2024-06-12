@@ -8,6 +8,7 @@ const User = require("../models/user.models");
 const Campaign = require("../models/campaigns.models");
 const CommunicationLog = require("../models/communicationLog.models");
 const Customer = require("../models/customer.models");
+import { publish } from "../utils/pubsub";
 function createMongoDBQuery(reqBody) {
   const initialRule = reqBody.initialRule;
   const conditions = reqBody.conditions;
@@ -250,19 +251,27 @@ const campaignMessage = async (req, res) => {
         })
       )
     );
-    const delivery = await fetch(
-      `${process.env.BACKEND_URL}/api/v1/users/delivery`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ message, userId, cid }),
-      }
-    );
-    console.log(delivery);
-    if (!delivery.ok)
-      throw new ApiError(400, "Issue in triggering delivery api");
+    await publish("customer_creation", {
+      type: "delivery",
+      data: {
+        message,
+        userId,
+        cid,
+      },
+    });
+    // const delivery = await fetch(
+    //   `${process.env.BACKEND_URL}/api/v1/users/delivery`,
+    //   {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({ message, userId, cid }),
+    //   }
+    // );
+    // console.log(delivery);
+    // if (!delivery.ok)
+    //   throw new ApiError(400, "Issue in triggering delivery api");
     return res
       .status(200)
       .json({ message: "Campaign Created and delivery api triggered" });

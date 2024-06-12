@@ -29,6 +29,19 @@ const listen = async () => {
       await Customer.create(dataToInsert.data);
     else if (dataToInsert.type === "order")
       await Order.create(dataToInsert.data);
+    else if (dataToInsert.type === "delivery") {
+      const { message, userId, cid } = dataToInsert.data;
+      const delivery = await fetch(
+        `${process.env.BACKEND_URL}/api/v1/users/delivery`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ message, userId, cid }),
+        }
+      );
+    }
     message.ack();
   };
   sub.on("message", messageHandler);
