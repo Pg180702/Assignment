@@ -273,7 +273,11 @@ const Audience = () => {
               </Typography>
             </>
           ) : (
-            <></>
+            <>
+              <Typography sx={{ marginTop: "1rem" }}>
+                No Audience available for the rules you selected
+              </Typography>
+            </>
           )}
           <Button type="submit" sx={{ marginTop: "1rem" }}>
             Check Audience Size
