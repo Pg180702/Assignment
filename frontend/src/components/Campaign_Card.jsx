@@ -34,6 +34,7 @@ const Campaign_Card = ({ data, id }) => {
         `${import.meta.env.VITE_BACKEND_URL}/api/v1/users/campaign-stats/${id}`
       );
       const resData = await response.json();
+      console.log(resData);
       setStats({ success: resData.success, failed: resData.fail });
     } catch (error) {
       alert("fetch error");

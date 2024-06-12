@@ -282,6 +282,7 @@ const campaignMessage = async (req, res) => {
 const deliveryReceiptApi = async (req, res) => {
   console.log("delivery hit");
   const { message, userId, cid } = req.body;
+  console.log(req.body);
   try {
     const audience = await CommunicationLog.find({
       senderId: userId,
