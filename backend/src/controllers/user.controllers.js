@@ -8,7 +8,7 @@ const User = require("../models/user.models");
 const Campaign = require("../models/campaigns.models");
 const CommunicationLog = require("../models/communicationLog.models");
 const Customer = require("../models/customer.models");
-import { publish } from "../utils/pubsub";
+const { publish } = require("../utils/pubsub");
 function createMongoDBQuery(reqBody) {
   const initialRule = reqBody.initialRule;
   const conditions = reqBody.conditions;
