@@ -130,8 +130,6 @@ const googleOauthHandler = async (req, res) => {
       email: googleUser.email,
     });
 
-    //now u insert this user in your model
-    //access token and refresh token we can send and then can set cookies have a res.redirect
     return res
       .status(200)
       .redirect(
