@@ -3,7 +3,7 @@ const projectId = "XenoApp";
 const path = require("path");
 const Customer = require("../models/customer.models");
 const Order = require("../models/order.models");
-const filePath = path.join(__dirname, "../xenoapp-425717-15c6ff1ec108.json");
+const filePath = "/etc/secrets/google-cloud-credentials.json";
 const client = new PubSub({
   keyFilename: filePath,
 });
